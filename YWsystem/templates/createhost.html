@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/jquery/jquery-1.10.2.min_65682a2.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+
+    <style>
+        .tip {
+            display: inline-block;
+            width: 80px;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            width: 80px;
+            background-color: #2aabd2;
+            border: 1px solid #2aabd2;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="padding-top: 5px;">
+                <img alt="Brand" src="/static/images/logo.png" >
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+{#                    <a href="#">当前用户{{ username }}登录</a>#}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="row">
+        <div class="col-md-2" style="padding-left: 30px;">
+            <div class="list-group">
+              <a href="#" class="list-group-item active">
+                功能列表
+              </a>
+              <a href="#" class="list-group-item">主机管理</a>
+              <a href="#" class="list-group-item">发布系统</a>
+              <a href="#" class="list-group-item">执行命令</a>
+              <a href="#" class="list-group-item">业务管理</a>
+            </div>
+        </div>
+
+        <form action="/createhost/" method="POST">
+            {% csrf_token %}
+            <div class="col-md-10" style="padding-right: 30px;">
+
+                <div style="margin-top: 10px">
+                   <span class="tip">mac地址：</span>
+                   <input type="text" name="mac_ip" />
+                </div>
+
+                <div style="margin-top: 10px">
+                   <span class="tip">选择系统：</span>
+{#                    <select name="choice_os">#}
+{#                        {% for i in os %}#}
+{#                            <option value="{{ forloop.counter }}">{{ i }}</option>#}
+{#                        {% endfor %}#}
+{#                    </select>#}
+                    <select name="choice_os">
+                        <option value="centos7-x86_64">centos7-x86_64</option>
+                        <option value="rhel8-x86_64">rhel8-x86_64</option>
+                    </select>
+                </div>
+
+                  <div style="margin-top: 10px">
+                   <span class="tip">系统名称：</span>
+                   <input type="text" name="server_name" />
+                </div>
+
+                <div style="margin-top: 10px">
+                    <input type="checkbox" name="install" value="1"/>&nbsp;&nbsp;&nbsp;<span>确定部署</span>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <input class="btn" type="submit" value="部署"/>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+</body>
+</html>

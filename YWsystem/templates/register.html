@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+
+    <style>
+        .login {
+            height: 200px;
+            width: 600px;
+            border: 1px solid gray;
+            margin: 100px auto auto auto;
+        }
+
+        .tip {
+            display: inline-block;
+            width: 100px;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 80px;
+            background-color: #2aabd2;
+            border: 1px solid #2aabd2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login">
+    <div style="width: 100%;  text-align: center">
+        <h2>运维系统</h2>
+    </div>
+    <div>
+        <form action="/register/" method="POST">
+            {% csrf_token %}
+            <div style="text-align: center">
+                <div style="margin-top: 10px">
+                    <span class="tip">用户名：</span>
+                    <input type="text" name="user"/>
+                    <span style="font-size: small; color: red">{{ user_error_msg }}</span>
+                </div>
+                <div style="margin-top: 10px">
+                    <span class="tip">密码：</span>
+                    <input type="password" name="pwd1"/>
+                </div>
+                <div style="margin-top: 10px">
+                    <span class="tip">确认密码：</span>
+                    <input type="password" name="pwd2"/>
+                    <span style="font-size: small; color: red">{{ pwd_error_msg }}</span>
+
+                </div>
+            </div>
+            <div style="margin-top: 10px; text-align: center">
+                <input class="btn" type="submit" value="注册"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

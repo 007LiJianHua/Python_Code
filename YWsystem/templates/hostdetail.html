@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <meta http-equiv="Refresh" content="1">#}
+    <title>主机详情</title>
+    <style>
+        table {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        table td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <h4>主机{{ server_ip }}详情</h4>
+    <table>
+        <tr>
+            <td>所在业务：</td>
+            <td>{{ server_app }}</td>
+        </tr>
+        <tr>
+            <td>运维人员：</td>
+            <td>{{ server_yw_user }}</td>
+        </tr>
+        <tr>
+            <td>运维电话:</td>
+            <td>{{ yw_phone }}</td>
+        </tr>
+        <tr>
+            <td>运维Email:</td>
+            <td>{{ yw_email }}</td>
+        </tr>
+        <tr>
+            <td>CPU型号：</td>
+            <td>{{ cpu_model|safe }}</td>
+        </tr>
+        <tr>
+            <td>CPU架构：</td>
+            <td>{{ cpu_arch|safe }}</td>
+        </tr>
+        <tr>
+            <td>内存信息：</td>
+            <td>{{ mem_info|safe }}</td>
+        </tr>
+        <tr>
+            <td>硬盘信息：</td>
+            <td>{{ disk_info|safe }}</td>
+        </tr>
+        <tr>
+            <td>网卡信息：</td>
+            <td>{{ net_info|safe }}</td>
+        </tr>
+        <tr>
+            <td>系统平台：</td>
+            <td>{{ os_platform|safe }}</td>
+        </tr>
+        <tr>
+            <td>内核版本：</td>
+            <td>{{ kernel_info|safe }}</td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
